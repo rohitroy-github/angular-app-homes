@@ -11,14 +11,24 @@ import { HousingService } from '../housing.service';
   standalone: true,
   imports: [CommonModule, HousingLocationComponent],
   template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" #filter />
-        <button class="primary" type="button" (click)="filterResults(filter.value)">
-          Search
-        </button>
-      </form>
-    </section>
+<section class="flex flex-col items-center justify-center mt-10">
+<form class="flex flex-wrap items-center gap-3">
+    <input 
+      type="text" 
+      placeholder="Filter by city" 
+      #filter
+      class="border border-blue-500 px-4 py-2 rounded-lg w-72 md:w-2/3 lg:w-1/3 "
+    />
+    <button 
+      type="button" 
+      (click)="filterResults(filter.value)" 
+      class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+    >
+      Search
+    </button>
+  </form>
+</section>
+
     <section class="results">
       <!-- displaying single data -->
 
