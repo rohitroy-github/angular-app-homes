@@ -66,8 +66,10 @@ export class HomeComponent {
    * and initializes the filteredLocationList with all data.
    */
   private loadHousingLocations() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
-    this.filteredLocationList = [...this.housingLocationList];
+    this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
+      this.housingLocationList = housingLocationList;
+      this.filteredLocationList = housingLocationList;
+    });
   }
 
   /**
