@@ -67,10 +67,17 @@ export class DetailsComponent {
   }
   
   submitApplication() {
+
+    if (!this.housingLocation) {
+      console.error("Error: Housing location is undefined");
+      return;
+    }
+    
     this.housingService.submitApplication(
       this.applyForm.value.firstName ?? "",
       this.applyForm.value.lastName ?? "",
-      this.applyForm.value.email ?? ""
+      this.applyForm.value.email ?? "",
+      this.housingLocation.id 
     );
   }
 }

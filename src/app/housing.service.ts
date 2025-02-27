@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HousingLocation } from './housinglocation';
+import { Injectable } from "@angular/core";
+import { HousingLocation } from "./housinglocation";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class HousingService {
+  constructor() {}
 
-  constructor() { }
-
-  serverDataUrl = 'http://localhost:3000/housingLocations';
+  serverDataUrl = "http://localhost:3000";
 
   // readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
@@ -115,21 +114,48 @@ export class HousingService {
   //     },
   //   ];
 
-    async getAllHousingLocations(): Promise<HousingLocation[]> {
-      const fetchedData = await fetch(this.serverDataUrl);
+  async getAllHousingLocations(): Promise<HousingLocation[]> {
+    const fetchedData = await fetch(`${this.serverDataUrl}/housingLocations`);
 
-      return (await fetchedData.json()) ?? {};
+    return (await fetchedData.json()) ?? {};
+  }
+
+  async getHousingLocationById(
+    id: number
+  ): Promise<HousingLocation | undefined> {
+    const data = await fetch(`${this.serverDataUrl}/housingLocations/${id}`);
+
+    return (await data.json()) ?? {};
+  }
+
+  // submitApplication(firstName: string, lastName: string, email: string) {
+  //   console.log(
+  //     `Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`,
+  //   );
+  // }
+
+  async submitApplication(
+    firstName: string,
+    lastName: string,
+    email: string,
+    propertyId: number
+  ): Promise<void> {
+    const applicationData = { firstName, lastName, email, propertyId };
+
+    console.log(applicationData);
+
+    const response = await fetch(`${this.serverDataUrl}/applications`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(applicationData),
+    });
+
+    if (response.ok) {
+      console.log("Application submitted successfully:", await response.json());
+    } else {
+      console.error("Error submitting application:", response.statusText);
     }
-
-    async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
-      const data = await fetch(`${this.serverDataUrl}/${id}`);
-
-      return (await data.json()) ?? {};
-    }
-
-    submitApplication(firstName: string, lastName: string, email: string) {
-      console.log(
-        `Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`,
-      );
-    }
+  }
 }
