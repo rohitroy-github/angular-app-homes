@@ -7,10 +7,12 @@ import { HousingLocation } from "./housinglocation";
 export class HousingService {
   constructor() {}
 
+  // URL of the JSON server where housing data is stored
   serverDataUrl = "http://localhost:3000";
 
   // readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
+  // Sample hardcoded housing location data (previously used before API integration)
   // protected housingLocationList: HousingLocation[] = [
   //     {
   //       id: 0,
@@ -52,74 +54,23 @@ export class HousingService {
   //       wifi: true,
   //       laundry: false,
   //     },
-  //     {
-  //       id: 4,
-  //       name: 'Happy Living Homes',
-  //       city: 'Ahmedabad',
-  //       state: 'Gujarat',
-  //       photo: `${this.baseUrl}/krzysztof-hepner-978RAXoXnH4-unsplash.jpg`,
-  //       availableUnits: 1,
-  //       wifi: true,
-  //       laundry: false,
-  //     },
-  //     {
-  //       id: 5,
-  //       name: 'Lotus Residency',
-  //       city: 'Hyderabad',
-  //       state: 'Telangana',
-  //       photo: `${this.baseUrl}/r-architecture-JvQ0Q5IkeMM-unsplash.jpg`,
-  //       availableUnits: 2,
-  //       wifi: true,
-  //       laundry: true,
-  //     },
-  //     {
-  //       id: 6,
-  //       name: 'Serene Shelter',
-  //       city: 'Chennai',
-  //       state: 'Tamil Nadu',
-  //       photo: `${this.baseUrl}/phil-hearing-IYfp2Ixe9nM-unsplash.jpg`,
-  //       availableUnits: 5,
-  //       wifi: true,
-  //       laundry: true,
-  //     },
-  //     {
-  //       id: 7,
-  //       name: 'Heritage Heights',
-  //       city: 'Jaipur',
-  //       state: 'Rajasthan',
-  //       photo: `${this.baseUrl}/r-architecture-GGupkreKwxA-unsplash.jpg`,
-  //       availableUnits: 2,
-  //       wifi: true,
-  //       laundry: true,
-  //     },
-  //     {
-  //       id: 8,
-  //       name: 'Safe Haven Residency',
-  //       city: 'Indore',
-  //       state: 'Madhya Pradesh',
-  //       photo: `${this.baseUrl}/saru-robert-9rP3mxf8qWI-unsplash.jpg`,
-  //       availableUnits: 10,
-  //       wifi: false,
-  //       laundry: false,
-  //     },
-  //     {
-  //       id: 9,
-  //       name: 'Capital Residency',
-  //       city: 'New Delhi',
-  //       state: 'Delhi',
-  //       photo: `${this.baseUrl}/webaliser-_TPTXZd9mOo-unsplash.jpg`,
-  //       availableUnits: 6,
-  //       wifi: true,
-  //       laundry: true,
-  //     },
-  //   ];
+  // ];
 
+  /**
+   * Fetches all available housing locations from the JSON server.
+   * @returns A promise that resolves to an array of HousingLocation objects.
+   */
   async getAllHousingLocations(): Promise<HousingLocation[]> {
     const fetchedData = await fetch(`${this.serverDataUrl}/housingLocations`);
 
     return (await fetchedData.json()) ?? {};
   }
 
+  /**
+   * Fetches a single housing location by its ID.
+   * @param id - The ID of the housing location.
+   * @returns A promise that resolves to a HousingLocation object or undefined if not found.
+   */
   async getHousingLocationById(
     id: number
   ): Promise<HousingLocation | undefined> {
@@ -128,12 +79,21 @@ export class HousingService {
     return (await data.json()) ?? {};
   }
 
+  // Previous console-based application submission (before API implementation)
   // submitApplication(firstName: string, lastName: string, email: string) {
   //   console.log(
-  //     `Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`,
+  //     `Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`
   //   );
   // }
 
+  /**
+   * Submits an application for a housing location.
+   * @param firstName - The first name of the applicant.
+   * @param lastName - The last name of the applicant.
+   * @param email - The email of the applicant.
+   * @param propertyId - The ID of the housing location being applied for.
+   * @returns A promise that resolves once the application is submitted.
+   */
   async submitApplication(
     firstName: string,
     lastName: string,
