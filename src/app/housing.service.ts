@@ -13,9 +13,9 @@ export class HousingService {
   protected housingLocationList: HousingLocation[] = [
       {
         id: 0,
-        name: 'Acme Fresh Start Housing',
-        city: 'Chicago',
-        state: 'IL',
+        name: 'Shree Residency',
+        city: 'Mumbai',
+        state: 'Maharashtra',
         photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
         availableUnits: 4,
         wifi: true,
@@ -23,9 +23,9 @@ export class HousingService {
       },
       {
         id: 1,
-        name: 'A113 Transitional Housing',
-        city: 'Santa Monica',
-        state: 'CA',
+        name: 'Sai Comfort Stay',
+        city: 'Bengaluru',
+        state: 'Karnataka',
         photo: `${this.baseUrl}/brandon-griggs-wR11KBaB86U-unsplash.jpg`,
         availableUnits: 0,
         wifi: false,
@@ -33,9 +33,9 @@ export class HousingService {
       },
       {
         id: 2,
-        name: 'Warm Beds Housing Support',
-        city: 'Juneau',
-        state: 'AK',
+        name: 'Annapurna Housing',
+        city: 'Kolkata',
+        state: 'West Bengal',
         photo: `${this.baseUrl}/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg`,
         availableUnits: 1,
         wifi: false,
@@ -43,9 +43,9 @@ export class HousingService {
       },
       {
         id: 3,
-        name: 'Homesteady Housing',
-        city: 'Chicago',
-        state: 'IL',
+        name: 'Green Valley Residency',
+        city: 'Pune',
+        state: 'Maharashtra',
         photo: `${this.baseUrl}/ian-macdonald-W8z6aiwfi1E-unsplash.jpg`,
         availableUnits: 1,
         wifi: true,
@@ -53,9 +53,9 @@ export class HousingService {
       },
       {
         id: 4,
-        name: 'Happy Homes Group',
-        city: 'Gary',
-        state: 'IN',
+        name: 'Happy Living Homes',
+        city: 'Ahmedabad',
+        state: 'Gujarat',
         photo: `${this.baseUrl}/krzysztof-hepner-978RAXoXnH4-unsplash.jpg`,
         availableUnits: 1,
         wifi: true,
@@ -63,9 +63,9 @@ export class HousingService {
       },
       {
         id: 5,
-        name: 'Hopeful Apartment Group',
-        city: 'Oakland',
-        state: 'CA',
+        name: 'Lotus Residency',
+        city: 'Hyderabad',
+        state: 'Telangana',
         photo: `${this.baseUrl}/r-architecture-JvQ0Q5IkeMM-unsplash.jpg`,
         availableUnits: 2,
         wifi: true,
@@ -73,9 +73,9 @@ export class HousingService {
       },
       {
         id: 6,
-        name: 'Seriously Safe Towns',
-        city: 'Oakland',
-        state: 'CA',
+        name: 'Serene Shelter',
+        city: 'Chennai',
+        state: 'Tamil Nadu',
         photo: `${this.baseUrl}/phil-hearing-IYfp2Ixe9nM-unsplash.jpg`,
         availableUnits: 5,
         wifi: true,
@@ -83,9 +83,9 @@ export class HousingService {
       },
       {
         id: 7,
-        name: 'Hopeful Housing Solutions',
-        city: 'Oakland',
-        state: 'CA',
+        name: 'Heritage Heights',
+        city: 'Jaipur',
+        state: 'Rajasthan',
         photo: `${this.baseUrl}/r-architecture-GGupkreKwxA-unsplash.jpg`,
         availableUnits: 2,
         wifi: true,
@@ -93,9 +93,9 @@ export class HousingService {
       },
       {
         id: 8,
-        name: 'Seriously Safe Towns',
-        city: 'Oakland',
-        state: 'CA',
+        name: 'Safe Haven Residency',
+        city: 'Indore',
+        state: 'Madhya Pradesh',
         photo: `${this.baseUrl}/saru-robert-9rP3mxf8qWI-unsplash.jpg`,
         availableUnits: 10,
         wifi: false,
@@ -103,9 +103,9 @@ export class HousingService {
       },
       {
         id: 9,
-        name: 'Capital Safe Towns',
-        city: 'Portland',
-        state: 'OR',
+        name: 'Capital Residency',
+        city: 'New Delhi',
+        state: 'Delhi',
         photo: `${this.baseUrl}/webaliser-_TPTXZd9mOo-unsplash.jpg`,
         availableUnits: 6,
         wifi: true,
@@ -116,6 +116,7 @@ export class HousingService {
     getAllHousingLocations(): HousingLocation[] {
       return this.housingLocationList;
     }
+
     getHousingLocationById(id: number): HousingLocation | undefined {
       return this.housingLocationList.find((housingLocation) => housingLocation.id === id);
     }
