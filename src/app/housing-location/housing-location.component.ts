@@ -22,7 +22,7 @@ import { RouterLink, RouterModule } from "@angular/router";
         </p>
       </a>
       <button [routerLink]="['/details', housingLocation.id]" 
-        class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+        class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition cursor-pointer">
         Learn More
       </button>
     </section>

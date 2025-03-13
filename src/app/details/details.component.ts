@@ -13,8 +13,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
       <!-- Left Section: Image, Title, Location & Features -->
       <section class="w-full lg:w-2/3">
         <img
-          class="h-[400px] w-full object-cover rounded-3xl mb-8"
-          [src]="housingLocation?.photo"
+        class="h-[400px] w-full object-cover rounded-lg mb-8 shadow-lg"
+        [src]="housingLocation?.photo"
           alt="Exterior photo of {{ housingLocation?.name }}"
           crossorigin
         />
@@ -38,15 +38,21 @@ import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 
       <!-- Right Section: Apply Form -->
       <section class="w-full lg:w-1/3 bg-gray-100 p-5 sm:p-4 rounded-lg shadow-md h-fit">
-        <h2 class="text-xl sm:text-lg font-semibold mb-3">Apply now to live here</h2>
-        <form [formGroup]="applyForm" (submit)="submitApplication()" class="space-y-3">
+        <h2 class="text-xl sm:text-lg font-semibold mb-3">Interested ?</h2>
+        <form [formGroup]="applyForm" 
+        (submit)="submitApplication($event)"
+
+        class="space-y-3">
           <input type="text" formControlName="firstName" placeholder="First Name" class="input-field text-lg sm:text-base bg-white p-3 sm:p-2 rounded-lg w-full" />
           <input type="text" formControlName="lastName" placeholder="Last Name" class="input-field text-lg sm:text-base bg-white p-3 sm:p-2 rounded-lg w-full" />
           <input type="email" formControlName="email" placeholder="Email" class="input-field text-lg sm:text-base bg-white p-3 sm:p-2 rounded-lg w-full" />
-          <button type="submit" class="bg-blue-500 text-white px-5 sm:px-4 py-2 rounded-lg hover:bg-blue-600 transition w-full">
+          <button type="submit" class="bg-blue-500 text-white px-5 sm:px-4 py-2 rounded-lg hover:bg-blue-600 transition w-full cursor-pointer">
             Apply Now
           </button>
         </form>
+
+        <p *ngIf="message" class="text-blue-500 text-sm mt-3 text-center">{{ message }}</p>
+
       </section>
     </article>
   `,
@@ -56,6 +62,7 @@ export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
+  message: string | null = null;
   applyForm = new FormGroup({
     firstName: new FormControl(""),
     lastName: new FormControl(""),
@@ -71,7 +78,10 @@ export class DetailsComponent {
       });
   }
   
-  submitApplication() {
+  submitApplication( event: Event) {
+    event.preventDefault();
+
+
     if (!this.housingLocation) {
       console.error("Error: Housing location is undefined");
       return;
@@ -83,5 +93,8 @@ export class DetailsComponent {
       this.applyForm.value.email ?? "",
       this.housingLocation.id 
     );
+
+    this.applyForm.reset();
+    this.message = "The owner will contact you soon.";
   }
 }

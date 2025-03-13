@@ -12,7 +12,11 @@
       "parking": true,
       "rent": "₹25,000/month",
       "roomType": "2 BHK",
-      "nearby": ["Juhu Beach", "Andheri Metro Station", "Infinity Mall"]
+      "nearby": [
+        "Juhu Beach",
+        "Andheri Metro Station",
+        "Infinity Mall"
+      ]
     },
     {
       "id": "1",
@@ -26,7 +30,11 @@
       "parking": false,
       "rent": "₹18,000/month",
       "roomType": "1 BHK",
-      "nearby": ["Electronic City", "Forum Mall", "Silk Board Junction"]
+      "nearby": [
+        "Electronic City",
+        "Forum Mall",
+        "Silk Board Junction"
+      ]
     },
     {
       "id": "2",
@@ -40,7 +48,11 @@
       "parking": false,
       "rent": "₹12,000/month",
       "roomType": "Studio Apartment",
-      "nearby": ["Howrah Bridge", "Park Street", "Victoria Memorial"]
+      "nearby": [
+        "Howrah Bridge",
+        "Park Street",
+        "Victoria Memorial"
+      ]
     },
     {
       "id": "3",
@@ -54,7 +66,11 @@
       "parking": true,
       "rent": "₹30,000/month",
       "roomType": "3 BHK",
-      "nearby": ["Connaught Place", "India Gate", "Delhi Metro Station"]
+      "nearby": [
+        "Connaught Place",
+        "India Gate",
+        "Delhi Metro Station"
+      ]
     },
     {
       "id": "4",
@@ -68,7 +84,11 @@
       "parking": true,
       "rent": "₹22,000/month",
       "roomType": "2 BHK",
-      "nearby": ["Hinjewadi IT Park", "Shivaji Nagar", "Phoenix Mall"]
+      "nearby": [
+        "Hinjewadi IT Park",
+        "Shivaji Nagar",
+        "Phoenix Mall"
+      ]
     },
     {
       "id": "5",
@@ -82,7 +102,11 @@
       "parking": true,
       "rent": "₹20,000/month",
       "roomType": "1 BHK",
-      "nearby": ["Marina Beach", "Guindy National Park", "T Nagar Market"]
+      "nearby": [
+        "Marina Beach",
+        "Guindy National Park",
+        "T Nagar Market"
+      ]
     },
     {
       "id": "6",
@@ -96,7 +120,11 @@
       "parking": true,
       "rent": "₹15,000/month",
       "roomType": "Studio Apartment",
-      "nearby": ["Hitech City", "Charminar", "Inorbit Mall"]
+      "nearby": [
+        "Hitech City",
+        "Charminar",
+        "Inorbit Mall"
+      ]
     },
     {
       "id": "7",
@@ -110,7 +138,11 @@
       "parking": false,
       "rent": "₹17,000/month",
       "roomType": "1 BHK",
-      "nearby": ["Sabarmati Riverfront", "Kankaria Lake", "Ahmedabad One Mall"]
+      "nearby": [
+        "Sabarmati Riverfront",
+        "Kankaria Lake",
+        "Ahmedabad One Mall"
+      ]
     },
     {
       "id": "8",
@@ -124,7 +156,11 @@
       "parking": true,
       "rent": "₹13,000/month",
       "roomType": "Studio Apartment",
-      "nearby": ["Hawa Mahal", "Amer Fort", "Bapu Bazaar"]
+      "nearby": [
+        "Hawa Mahal",
+        "Amer Fort",
+        "Bapu Bazaar"
+      ]
     },
     {
       "id": "9",
@@ -138,7 +174,27 @@
       "parking": true,
       "rent": "₹21,000/month",
       "roomType": "2 BHK",
-      "nearby": ["Lulu Mall", "Marine Drive", "Fort Kochi"]
+      "nearby": [
+        "Lulu Mall",
+        "Marine Drive",
+        "Fort Kochi"
+      ]
+    }
+  ],
+  "applications": [
+    {
+      "id": "42c6",
+      "firstName": "rohit",
+      "lastName": "roy",
+      "email": "rohitsocial.roy@gmail.com",
+      "propertyId": "2"
+    },
+    {
+      "id": "c9b5",
+      "firstName": "Rohit",
+      "lastName": "Roy",
+      "email": "rhtry.tech@gmail.com",
+      "propertyId": "2"
     }
   ]
 }
