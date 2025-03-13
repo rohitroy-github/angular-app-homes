@@ -1,5 +1,3 @@
-// Angular component that displays a list of housing locations and allows users to filter them by city
-
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HousingLocationComponent } from "../housing-location/housing-location.component";
@@ -12,12 +10,12 @@ import { HousingService } from "../housing.service";
   imports: [CommonModule, HousingLocationComponent],
   template: `
     <section class="flex flex-col items-center justify-center mt-10">
-      <form class="flex flex-wrap items-center gap-3">
+      <form class="flex flex-wrap items-center justify-center gap-3 w-2/3">
         <input
           type="text"
           placeholder="Filter by city"
           #filter
-          class="border border-blue-500 px-4 py-2 rounded-lg w-72 md:w-2/3 lg:w-1/3 "
+          class="border border-blue-500 px-4 py-2 rounded-lg w-72 md:w-2/3 lg:w-1/3"
         />
         <button
           type="button"
@@ -29,16 +27,17 @@ import { HousingService } from "../housing.service";
       </form>
     </section>
 
-    <section class="results">
+    <section class="grid gap-8 mt-12 justify-around sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- displaying single data -->
-
+      
       <!-- <app-housing-location [housingLocation]="housingLocation"></app-housing-location> -->
-
+      
       <!-- displaying multiple data -->
-
+      
       <app-housing-location
         *ngFor="let housingLocation of filteredLocationList"
         [housingLocation]="housingLocation"
+        class="bg-white shadow-md rounded-xl"
       ></app-housing-location>
     </section>
   `,
