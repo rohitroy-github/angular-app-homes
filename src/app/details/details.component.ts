@@ -4,48 +4,53 @@ import { ActivatedRoute } from "@angular/router";
 import { HousingService } from "../housing.service";
 import { HousingLocation } from "../housinglocation";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
+
 @Component({
   selector: "app-details",
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <article>
-      <img
-        class="listing-photo"
-        [src]="housingLocation?.photo"
-        alt="Exterior photo of {{ housingLocation?.name }}"
-        crossorigin
-      />
-      <section class="listing-description">
-        <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
-        <p class="listing-location">
+    <article class="container mx-auto px-4 lg:px-16 py-10 flex flex-col lg:flex-row gap-10">
+      <!-- Left Section: Image, Title, Location & Features -->
+      <section class="w-full lg:w-2/3">
+        <img
+          class="h-[400px] w-full object-cover rounded-3xl mb-8"
+          [src]="housingLocation?.photo"
+          alt="Exterior photo of {{ housingLocation?.name }}"
+          crossorigin
+        />
+        <h2 class="text-3xl sm:text-2xl font-bold mb-3">{{ housingLocation?.name }}</h2>
+        <p class="text-xl sm:text-lg flex items-center gap-2 mb-3">
+          <img src="/assets/location-pin.svg" alt="Location Icon" class="w-5 h-5" />
           {{ housingLocation?.city }}, {{ housingLocation?.state }}
         </p>
-      </section>
-      <section class="listing-features">
-        <h2 class="section-heading">About this housing location</h2>
-        <ul>
-          <li>Units available: {{ housingLocation?.availableUnits }}</li>
-          <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
-          <li>
-            Does this location have laundry: {{ housingLocation?.laundry }}
-          </li>
+        <h2 class="text-2xl sm:text-xl font-semibold text-blue-600 mb-3">About this housing location</h2>
+        <ul class="text-lg sm:text-base space-y-2">
+          <li>🏠 Units available: <span class="font-semibold">{{ housingLocation?.availableUnits }}</span></li>
+          <li>📶 Wifi: <span class="font-semibold">{{ housingLocation?.wifi ? 'Yes' : 'No' }}</span></li>
+          <li>🧺 Laundry: <span class="font-semibold">{{ housingLocation?.laundry ? 'Yes' : 'No' }}</span></li>
+          <li>🚗 Parking: <span class="font-semibold">{{ housingLocation?.parking ? 'Yes' : 'No' }}</span></li>
+          <li>💰 Rent: <span class="font-semibold">{{ housingLocation?.rent }}</span></li>
+          <li>🛏️ Room Type: <span class="font-semibold">{{ housingLocation?.roomType }}</span></li>
+          <li>📍 Nearby Facilities: <span class="font-semibold">{{ housingLocation?.nearby?.join(', ') }}</span></li>
+
         </ul>
       </section>
-      <section class="listing-apply">
-        <h2 class="section-heading">Apply now to live here</h2>
-        <form [formGroup]="applyForm" (submit)="submitApplication()">
-          <label for="first-name">First Name</label>
-          <input id="first-name" type="text" formControlName="firstName" />
-          <label for="last-name">Last Name</label>
-          <input id="last-name" type="text" formControlName="lastName" />
-          <label for="email">Email</label>
-          <input id="email" type="email" formControlName="email" />
-          <button type="submit" class="primary">Apply now</button>
+
+      <!-- Right Section: Apply Form -->
+      <section class="w-full lg:w-1/3 bg-gray-100 p-5 sm:p-4 rounded-lg shadow-md h-fit">
+        <h2 class="text-xl sm:text-lg font-semibold mb-3">Apply now to live here</h2>
+        <form [formGroup]="applyForm" (submit)="submitApplication()" class="space-y-3">
+          <input type="text" formControlName="firstName" placeholder="First Name" class="input-field text-lg sm:text-base bg-white p-3 sm:p-2 rounded-lg w-full" />
+          <input type="text" formControlName="lastName" placeholder="Last Name" class="input-field text-lg sm:text-base bg-white p-3 sm:p-2 rounded-lg w-full" />
+          <input type="email" formControlName="email" placeholder="Email" class="input-field text-lg sm:text-base bg-white p-3 sm:p-2 rounded-lg w-full" />
+          <button type="submit" class="bg-blue-500 text-white px-5 sm:px-4 py-2 rounded-lg hover:bg-blue-600 transition w-full">
+            Apply Now
+          </button>
         </form>
       </section>
     </article>
   `,
-  styleUrls: ["./details.component.css"],
+  styleUrls: [],
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
@@ -67,7 +72,6 @@ export class DetailsComponent {
   }
   
   submitApplication() {
-
     if (!this.housingLocation) {
       console.error("Error: Housing location is undefined");
       return;
