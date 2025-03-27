@@ -2,7 +2,9 @@
 
 This is a **housing application portal** that allows users to view housing details and apply for housing units through an interactive and user-friendly interface built with **Angular and Tailwind CSS**.
 
-**Project is deployed here:** [Housing Application Portal](#) (Deployment Link Placeholder)
+<!-- **Project is deployed here:** [Housing Application Portal](#) (Deployment Link Placeholder) -->
+
+**Project will currently run on localhost.**
 
 ---
 
@@ -27,7 +29,6 @@ This is a **housing application portal** that allows users to view housing detai
 
 - **Frontend**: Angular, TypeScript, Tailwind CSS
 - **Backend**: Simulated API using Angular Services
-- **Hosting**: (Specify if hosted on Firebase, Netlify, Vercel, etc.)
 - **Version Control**: Git and GitHub
 
 ---

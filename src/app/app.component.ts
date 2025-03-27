@@ -5,11 +5,11 @@ import { RouterModule } from "@angular/router";
   selector: "app-root",
   imports: [RouterModule],
   template: `
-    <main class="flex flex-col items-center p-4">
+    <main class="flex flex-col items-center">
       <!-- Header with Brand Logo -->
       <header class="flex justify-center items-center">
         <img
-          class="w-20 h-20" 
+          class="w-30 h-30" 
           src="/assets/logo.svg"
           alt="logo"
           aria-hidden="true"
@@ -17,9 +17,9 @@ import { RouterModule } from "@angular/router";
       </header>
 
       <!-- Main Content Section with dynamic padding -->
-      <section class="w-full mt-6 px-4 md:px-8 lg:px-16 xl:px-32">
+      <article class=" container  mx-auto w-full px-4 md:px-8 lg:px-16 xl:px-16 pb-10">
         <router-outlet></router-outlet>
-      </section>
+      </article>
     </main>
   `,
   styleUrls: ["./app.component.css"],

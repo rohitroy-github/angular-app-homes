@@ -179,6 +179,60 @@
         "Marine Drive",
         "Fort Kochi"
       ]
+    },
+    {
+      "id": "10",
+      "name": "Royal Crest Apartments",
+      "city": "Delhi",
+      "state": "Delhi",
+      "photo": "assets/house-photos/home1.avif",
+      "availableUnits": 4,
+      "wifi": true,
+      "laundry": true,
+      "parking": true,
+      "rent": "₹28,000/month",
+      "roomType": "3 BHK",
+      "nearby": [
+        "Chandni Chowk",
+        "Red Fort",
+        "Delhi University Campus"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Deep Villa",
+      "city": "Delhi",
+      "state": "Delhi",
+      "photo": "assets/house-photos/home2.webp",
+      "availableUnits": 2,
+      "wifi": true,
+      "laundry": true,
+      "parking": true,
+      "rent": "₹50,000/month",
+      "roomType": "Luxury Villa",
+      "nearby": [
+        "Qutub Minar",
+        "Hauz Khas Village",
+        "Dilli Haat"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Elite Towers",
+      "city": "Delhi",
+      "state": "Delhi",
+      "photo": "assets/house-photos/home3.jpg",
+      "availableUnits": 3,
+      "wifi": true,
+      "laundry": true,
+      "parking": true,
+      "rent": "₹35,000/month",
+      "roomType": "4 BHK",
+      "nearby": [
+        "Delhi Haat",
+        "Lotus Temple",
+        "Akshardham Temple"
+      ]
     }
   ],
   "applications": [

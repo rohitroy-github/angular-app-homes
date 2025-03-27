@@ -9,7 +9,7 @@ import { HousingService } from "../housing.service";
   standalone: true,
   imports: [CommonModule, HousingLocationComponent],
   template: `
-    <section class="flex flex-col items-center justify-center mt-10">
+    <section class="flex flex-col items-center justify-center">
       <form
         class="flex flex-wrap items-center justify-center gap-3 w-2/3"
         (submit)="filterResults(filter.value, $event)"
@@ -29,10 +29,14 @@ import { HousingService } from "../housing.service";
       </form>
     </section>
 
+
+
     <section
-      class="grid gap-8 mt-12 justify-around sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-      *ngIf="filteredLocationList.length > 0; else noResults"
-    >
+  class="grid gap-8 mt-12 justify-around sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  *ngIf="filteredLocationList.length > 0; else noResults"
+>
+
+
       <!-- displaying single data -->
 
       <!-- <app-housing-location [housingLocation]="housingLocation"></app-housing-location> -->

@@ -51,7 +51,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
           </button>
         </form>
 
-        <p *ngIf="message" class="text-blue-500 text-sm mt-3">{{ message }}</p>
+        <p *ngIf="message" class="text-blue-500 text-sm mt-3 text-center">{{ message }}</p>
 
       </section>
     </article>
