@@ -9,6 +9,7 @@ export interface HousingLocation {
   availableUnits: number;
   wifi: boolean;
   laundry: boolean;
+  furnished: boolean;
   parking: boolean;
   rent: string;
   roomType: string;

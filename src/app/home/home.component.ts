@@ -5,11 +5,13 @@ import { HousingLocation } from "../housinglocation";
 import { HousingService } from "../housing.service";
 import { MatDialog } from "@angular/material/dialog";
 import { FilterDialogComponent } from "../filter-dialog/filter-dialog.component";
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule, HousingLocationComponent],
+  imports: [CommonModule, HousingLocationComponent, FormsModule],
   template: `
     <section class="flex flex-col items-center justify-center">
       <form
@@ -37,6 +39,27 @@ import { FilterDialogComponent } from "../filter-dialog/filter-dialog.component"
         >
           Filters
         </button>
+
+        <!-- Furnishing Type Toggle -->
+        <div class="flex items-center ml-4">
+          <span class="text-sm text-gray-700">Furnished</span>
+          <label class="relative inline-flex items-center cursor-pointer ml-2">
+            <input
+              type="checkbox"
+              [(ngModel)]="filters.furnished"
+              class="sr-only peer"
+              (change)="filterResults(filter.value, $event)"
+              name="furnished"
+            />
+            <div
+              class="w-9 h-5 bg-gray-300 peer-focus:ring-4 peer-focus:ring-blue-200 rounded-full peer 
+               peer-checked:after:translate-x-4 peer-checked:after:border-white 
+               peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-0.5 
+               after:left-[2px] after:bg-white after:border-gray-300 after:border 
+               after:rounded-full after:h-4 after:w-4 after:transition-all"
+            ></div>
+          </label>
+        </div>
       </form>
     </section>
 
@@ -99,6 +122,7 @@ export class HomeComponent {
     minRent: null,
     maxRent: null,
     roomType: "",
+    furnished: false,
   };
 
   constructor() {
@@ -137,8 +161,8 @@ export class HomeComponent {
    */
   openFilterDialog() {
     const dialogRef = this.dialog.open(FilterDialogComponent, {
-      maxWidth: "90vw",  // Limits width to 90% of the viewport width
-      width: "400px",     // Default width, but not fixed
+      maxWidth: "90vw", // Limits width to 90% of the viewport width
+      width: "400px", // Default width, but not fixed
       data: { ...this.filters },
     });
 
@@ -172,7 +196,8 @@ export class HomeComponent {
         (!this.filters.minRent ||
           parseInt(location.rent.replace(/\D/g, "")) >= this.filters.minRent) &&
         (!this.filters.maxRent ||
-          parseInt(location.rent.replace(/\D/g, "")) <= this.filters.maxRent)
+          parseInt(location.rent.replace(/\D/g, "")) <= this.filters.maxRent) &&
+          (!this.filters.furnished || location.furnished)
     );
   }
 }

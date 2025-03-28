@@ -60,6 +60,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
             }}</span>
           </li>
           <li>
+            🚗 Furnished:
+            <span class="font-semibold">{{
+              housingLocation?.furnished ? "Yes" : "No"
+            }}</span>
+          </li>
+          <li>
             💰 Rent:
             <span class="font-semibold">{{ housingLocation?.rent }}</span>
           </li>
