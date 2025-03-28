@@ -101,20 +101,32 @@ export class HomeComponent {
 
   /**
    * Filters the list of housing locations based on the user's input.
+   * The search is case-insensitive and matches properties based on:
+   * - Name
+   * - City
+   * - State
+   * - Room Type
+   * 
    * If no text is entered, it resets to show all locations.
    * @param text - The filter text entered by the user.
+   * @param event - The form submission event to prevent default behavior.
    */
   filterResults(text: string, event: Event) {
     event.preventDefault();
-
+  
     if (!text) {
       this.filteredLocationList = [...this.housingLocationList]; // Reset to original list
       return;
     }
-    // else
-    this.filteredLocationList = this.housingLocationList.filter(
-      (housingLocation) =>
-        housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+  
+    const lowerText = text.toLowerCase();
+  
+    this.filteredLocationList = this.housingLocationList.filter((housingLocation) =>
+      housingLocation.name.toLowerCase().includes(lowerText) ||
+      housingLocation.city.toLowerCase().includes(lowerText) ||
+      housingLocation.state.toLowerCase().includes(lowerText) ||
+      housingLocation.roomType.toLowerCase().includes(lowerText)
     );
   }
+  
 }
