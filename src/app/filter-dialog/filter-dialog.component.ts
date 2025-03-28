@@ -7,8 +7,8 @@ import { FormsModule } from "@angular/forms";
   standalone: true,
   imports: [FormsModule],
   template: `
-    <section class="p-5 bg-white rounded-lg shadow-md w-full max-w-md">
-      <h2 class="text-lg font-semibold text-gray-800">Filter Properties</h2>
+<section class="p-5 bg-white rounded-lg shadow-md w-full max-w-md mx-auto">
+<h2 class="text-lg font-semibold text-gray-800">Filter Properties</h2>
 
       <div class="flex flex-col gap-3 mt-3">
         <label class="flex items-center gap-2 text-sm text-gray-700">

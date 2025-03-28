@@ -137,7 +137,8 @@ export class HomeComponent {
    */
   openFilterDialog() {
     const dialogRef = this.dialog.open(FilterDialogComponent, {
-      width: "400px",
+      maxWidth: "90vw",  // Limits width to 90% of the viewport width
+      width: "400px",     // Default width, but not fixed
       data: { ...this.filters },
     });
 
