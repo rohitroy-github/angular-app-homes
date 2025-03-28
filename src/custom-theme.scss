@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+:root {
+  @include mat.dialog-overrides((
+    container-shape: 12px, // Rounded corners
+    container-color: #f8f9fa, // Light gray background for a modern look
+    subhead-color: #212529, // Dark gray for better readability
+    supporting-text-color: #6c757d, // Lighter text for descriptions
+    subhead-font: --mat-sys-headline-small-font,
+    subhead-line-height: --mat-sys-headline-small-line-height,
+    subhead-size: --mat-sys-headline-small-size,
+    subhead-weight: --mat-sys-headline-small-weight,
+    subhead-tracking: --mat-sys-headline-small-tracking,
+    supporting-text-font: --mat-sys-body-medium-font,
+    supporting-text-line-height: --mat-sys-body-medium-line-height,
+    supporting-text-size: --mat-sys-body-medium-size,
+    supporting-text-weight: --mat-sys-body-medium-weight,
+    supporting-text-tracking: --mat-sys-body-medium-tracking,
+    container-elevation-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1), // Soft shadow effect
+    content-padding: 24px, // More spacing inside the dialog
+    actions-padding: 16px, // Padding for actions at the bottom
+    container-max-width: 480px // Responsive max-width
+  ));
+}
+
